@@ -3,6 +3,37 @@
   <h1>
     Welcome to {{title}}!
   </h1>
+  <h3>{{description}}</h3>
+  <table border="1">
+    <tr>
+      <th>Category</th>
+      <th>Price</th>
+      <th>Is Available?</th>
+      <th>Ingredient</th>
+      <th>Equivalent</th>
+    </tr>
+    <tr>
+      <td>{{category}}</td>
+      <td><span *ngIf="price == 'Infinity'; else elsePriceBlock">&#x221E;</span> </td>
+        <ng-template #elsePriceBlock><span>{{price}}</span></ng-template>
+      <td><input type="checkbox" [checked]="isAvailable" readonly="true" disabled></td>
+      <td>
+        <tr *ngFor="let ing of ingredients">{{ing}}</tr>
+      </td>
+      <td>
+          <tr *ngFor="let eq of equivalents">{{eq}}</tr>
+      </td>
+    </tr>
+
+
+
+    <!-- <tr><th colspan="2">{{category}}</th></tr> -->
+    <!-- <tr *ngFor="let ing or ingredients; let i = index;">
+      <td>{{ing}}</td>
+      <td>{{equivalent[i]}}</td>
+    </tr> -->
+
+  </table>
   <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
 <h2>Here are some links to help you start: </h2>
