@@ -10,7 +10,8 @@ export class ProductService {
         return [
             new Product(1, 'Banana', 'Nigeria', Category.FRUIT),
             new Product(2, 'Orange', 'Turkey', Category.FRUIT),
-            new Product(3, 'Potato', 'Ukraine', Category.FRUIT)
+            new Product(3, 'Potato', 'Ukraine', Category.FRUIT),
+            new Product(4, 'Audi B4', 'Germany', Category.VEHICLE)
         ];
     }
 
