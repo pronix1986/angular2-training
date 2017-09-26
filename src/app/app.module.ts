@@ -2,15 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { ProductService } from '../services/product.service';
+import { CartProductService } from '../services/cart.product.service';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [ProductService, CartProductService], // Register custom services
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ProductService } from '../services/product.service';
+import { Category } from '../model/category.model';
 
 
 @Component({
@@ -7,20 +9,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(private service: ProductService) {}
+
+  // Add some new properties incl. arrays
   title = 'My First Angular App';
-  name = 'App';
-  description = 'My First Angular App';
+  name = 'Health';
+  description = 'Some Product';
   price =  Infinity;
   category = Category.HEALTH;
   isAvailable = true;
   ingredients = ['SUN', 'WATER', 'AIR'];
   equivalents = ['BULB', 'BEAR', 'SMOKING'];
+  products = this.service.getProducts();
 
-  // constructor(public name = 'App', public description = 'My First Angular App',
-  //     public price = 1, public category = Category.HEALTH, public isAvailable = true,
-  //     public ingredients = ['SUN', 'WATER', 'AIR'], public equivalents = ['LAMPPOST', 'BEAR', '-']) {}
-
+  onBuy() {
+    console.log('Bought!');
+  }
 
 }
 
-export const enum Category {'VEHICLE', 'HEALTH', 'CLOTHING', 'SHOE', 'WATCH'}
+
