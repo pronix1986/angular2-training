@@ -1,0 +1,17 @@
+<h3>List of Products</h3>
+<table border="1" style="margin: 0px auto;">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Category</th>
+  </tr>
+
+      <tr *ngFor="let product of products">
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.category.toString()}}</td>
+      </tr>
+
+</table>

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ProductService } from './services/product.service';
-import { Category } from './model/category.model';
+import { Category } from './products/model/category.model';
 
 
 @Component({
@@ -10,7 +9,7 @@ import { Category } from './model/category.model';
 })
 export class AppComponent {
 
-  constructor(private service: ProductService) {}
+  constructor() {}
 
   // Add some new properties incl. arrays
   title = 'My First Angular App';
@@ -21,7 +20,7 @@ export class AppComponent {
   isAvailable = true;
   ingredients = ['SUN', 'WATER', 'AIR'];
   equivalents = ['BULB', 'BEAR', 'SMOKING'];
-  products = this.service.getProducts();
+
 
   onBuy() {
     console.log('Bought!');
