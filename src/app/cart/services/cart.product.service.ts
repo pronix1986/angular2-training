@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 
-import { Product } from '../products/model/product.model';
-import { Category } from '../products/model/category.model';
+import { Product } from '../../products/model/product.model';
+import { Category } from '../../products/model/category.model';
 
 @Injectable()
 export class CartProductService implements OnInit {
