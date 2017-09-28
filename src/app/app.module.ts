@@ -11,8 +11,8 @@ import {CartModule} from './cart/cart.module';
   ],
   imports: [
     BrowserModule,
-    ProductsModule,
-    CartModule
+    ProductsModule,   // Child module
+    CartModule        // Child module
   ],
   providers: [], // Register custom services
   bootstrap: [AppComponent]

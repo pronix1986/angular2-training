@@ -9,7 +9,11 @@ export class CartProductService implements OnInit {
     cartProducts: Array<Product> = [];
 
     addToCart(product: Product) {
-        this.cartProducts.push(product);
+        console.log(this.cartProducts);
+        console.log(this.cartProducts.indexOf(product));
+        if (this.cartProducts.indexOf(product) === -1) {
+            this.cartProducts.push(product);
+        }
     }
 
     removeFromCart(product: Product) {
@@ -20,8 +24,6 @@ export class CartProductService implements OnInit {
     }
 
     getCartProducts() {
-        this.addToCart(new Product(1, 'Banana', 'Nigeria', Category.FRUIT));
-        this.addToCart(new Product(2, 'Orange', 'Turkey', Category.FRUIT));
         return this.cartProducts;
     }
 

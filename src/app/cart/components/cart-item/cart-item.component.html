@@ -4,6 +4,8 @@
      TODO
     </td>
     <td>{{product.name}}</td>
-    <td>TODO</td>
+    <td><input width="80px" type="number" min="0" [(value)]="quantity"></td>
+    <td></td>
+    <td><input type="button" value="Remove from Cart" (click)="removeFromCart()"></td>
   </tr>
 </table>

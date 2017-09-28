@@ -1,11 +1,14 @@
-<div *ngIf="products">
+<div *ngIf="(products.length > 0); else elseblock">
 <h3>Cart</h3>
 <table border="1">
   <tr>
     <th>No</th>
     <th>Name</th>
     <th>Quantity</th>
+    <th>Cost</th>
+    <th></th>
   </tr>
 </table>
 <app-cart-item *ngFor="let product of products" [product]="product"></app-cart-item>
 </div>
+<ng-template #elseblock><h3>Cart is Empty</h3></ng-template>
