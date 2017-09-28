@@ -12,12 +12,20 @@ export class CartProductService implements OnInit {
         this.cartProducts.push(product);
     }
 
+    removeFromCart(product: Product) {
+        const index = this.cartProducts.indexOf(product);
+        if (index > -1) {
+            this.cartProducts.splice(index, 1);
+        }
+    }
+
     getCartProducts() {
+        this.addToCart(new Product(1, 'Banana', 'Nigeria', Category.FRUIT));
+        this.addToCart(new Product(2, 'Orange', 'Turkey', Category.FRUIT));
         return this.cartProducts;
     }
 
     ngOnInit() {
-        this.addToCart(new Product(0, '', '', Category.FRUIT));
     }
 
 }
