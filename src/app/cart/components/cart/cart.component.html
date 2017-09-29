@@ -1,4 +1,5 @@
-<div *ngIf="(products.length > 0); else elseblock">
+<p>{{getProducts()}}</p>
+<div *ngIf="(products && products.length > 0); else elseblock">
 <h3>Cart</h3>
 <table border="1">
   <tr>
@@ -10,6 +11,8 @@
   </tr>
 </table>
 <app-cart-item *ngFor="let product of products" [product]="product"></app-cart-item>
-<p><b>Total cost:</b>{{cartService.getTotalCost()}}</p>
+<p><b>Total items: </b>{{cartService.getTotalProducts()}}&nbsp;
+  <b>Total cost: </b>{{cartService.getTotalCost()}}&nbsp;
+  <input type="button" value="Empty Cart" (click)="emptyCart()"></p>
 </div>
 <ng-template #elseblock><h3>Cart is Empty</h3></ng-template>

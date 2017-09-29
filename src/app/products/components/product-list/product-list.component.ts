@@ -15,6 +15,7 @@ export class ProductListComponent implements OnInit {
   products = this.productService.getProducts();
 
   doBuy(product: Product) {
+    console.log('Do Buy');
     console.log(product);
     this.cartProductService.addToCart(product);
   }

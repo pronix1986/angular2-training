@@ -10,6 +10,7 @@ export class CartProductService implements OnInit {
     cartProducts: Array<CartProduct> = [];
 
     addToCart(product: Product) {
+        console.log('Add to Cart');
         console.log(this.cartProducts);
 
         const obj = this.cartProducts.find((cartProduct) =>
@@ -33,18 +34,24 @@ export class CartProductService implements OnInit {
         }
     }
 
+    emptyCart() {
+        this.cartProducts.length = 0;
+    }
+
     getCartProducts() {
         return this.cartProducts;
     }
 
     getTotalProducts() {
-        return this.cartProducts.length;
+        return this.cartProducts ? this.cartProducts.length : 0;
     }
 
     getTotalCost() {
-        return this.cartProducts.reduce((accumulator, value) =>
-                (accumulator + value.price * value.quantity), 0);
+        return this.cartProducts ? this.cartProducts.reduce((accumulator, value) =>
+                (accumulator + value.price * value.quantity), 0) : 0;
     }
+
+
 
     ngOnInit() {
     }
