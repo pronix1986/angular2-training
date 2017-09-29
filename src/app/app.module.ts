@@ -1,9 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, InjectionToken } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {ProductsModule} from './products/products.module';
 import {CartModule} from './cart/cart.module';
+
+import {LocalStorageService} from './services/local-storage.service';
+import {ConfigOptionsService} from './services/config-options.service';
+
+
 
 @NgModule({
   declarations: [
@@ -14,7 +19,10 @@ import {CartModule} from './cart/cart.module';
     ProductsModule,   // Child module
     CartModule        // Child module
   ],
-  providers: [], // Register custom services
+  providers: [
+    LocalStorageService,
+    ConfigOptionsService
+  ], // Register custom services
   bootstrap: [AppComponent]
 })
 export class AppModule { }
