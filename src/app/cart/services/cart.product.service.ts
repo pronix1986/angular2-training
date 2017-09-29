@@ -11,14 +11,23 @@ export class CartProductService implements OnInit {
 
     addToCart(product: Product) {
         console.log(this.cartProducts);
-        console.log(Object.keys(this.cartProducts).indexOf(product));
-        if (this.cartProducts.indexOf(product) === -1) {
+
+        const obj = this.cartProducts.find((cartProduct) =>
+            cartProduct.name === product.name &&
+            cartProduct.description === product.description &&
+            cartProduct.category === product.category &&
+            cartProduct.price === product.price
+        );
+
+        console.log(obj);
+
+        if (!obj) {
             this.cartProducts.push(new CartProduct(product, 1));
         }
     }
 
-    removeFromCart(product: Product) {
-        const index = this.cartProducts.indexOf(product);
+    removeFromCart(cartProduct: CartProduct) {
+        const index = this.cartProducts.indexOf(cartProduct);
         if (index > -1) {
             this.cartProducts.splice(index, 1);
         }
@@ -26,6 +35,15 @@ export class CartProductService implements OnInit {
 
     getCartProducts() {
         return this.cartProducts;
+    }
+
+    getTotalProducts() {
+        return this.cartProducts.length;
+    }
+
+    getTotalCost() {
+        return this.cartProducts.reduce((accumulator, value) =>
+                (accumulator + value.price * value.quantity), 0);
     }
 
     ngOnInit() {

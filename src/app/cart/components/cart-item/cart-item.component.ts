@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import {Product} from '../../../products/model/product.model';
+import {CartProduct} from '../../model/cart-product.model';
 import {CartProductService} from '../../services/cart.product.service';
 
 @Component({
@@ -8,8 +9,7 @@ import {CartProductService} from '../../services/cart.product.service';
   styleUrls: ['./cart-item.component.css']
 })
 export class CartItemComponent implements OnInit, OnChanges {
-  @Input() product: Product;
-  quantity: number;
+  @Input() product: CartProduct;
   cost: number;
 
   constructor(private cartProductService: CartProductService) { }
@@ -20,14 +20,13 @@ export class CartItemComponent implements OnInit, OnChanges {
 
   onQualityChange(value: number): void {
     console.log('quantity changed');
-    this.quantity = value;
-    this.cost = this.product.price * this.quantity;
+    this.product.quantity = value;
+    this.cost = this.product.price * this.product.quantity;
   }
 
 
   ngOnInit() {
     console.log(this.product);
-    this.quantity = 1;
     this.cost = this.product.price;
   }
 
