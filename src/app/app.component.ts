@@ -16,9 +16,8 @@ const APPLICATION = new InjectionToken<any>('Application');
 export class AppComponent {
 
   constructor(@Inject(APPLICATION) private ttl: any,
-              @Optional() @Inject(RAND_STR)  private rand: string) {
-    console.log(ttl);
-  }
+              @Optional() @Inject(RAND_STR)  private rand: string
+              ) { }
 
   // Add some new properties incl. arrays
  // title = 'My First Angular App';
