@@ -1,5 +1,6 @@
-import { Component, Inject, InjectionToken } from '@angular/core';
+import { Component, Inject, InjectionToken, Optional } from '@angular/core';
 import { Category } from './products/model/category.model';
+import {RAND_STR, randomStringFactory} from './model/random-string.factory';
 
 const APPLICATION = new InjectionToken<any>('Application');
 
@@ -7,17 +8,21 @@ const APPLICATION = new InjectionToken<any>('Application');
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [{provide: APPLICATION, useValue: { App: 'Shop', Ver: '1.0' }}]
+  providers: [
+    {provide: APPLICATION, useValue: { App: 'Shop', Ver: '1.0' }}, // ConstantService
+    {provide: RAND_STR, useFactory: randomStringFactory(6)} // GeneratorService
+  ]
 })
 export class AppComponent {
 
-  constructor(@Inject(APPLICATION) private ttl: any) {
+  constructor(@Inject(APPLICATION) private ttl: any,
+              @Optional() @Inject(RAND_STR)  private rand: string) {
     console.log(ttl);
   }
 
   // Add some new properties incl. arrays
  // title = 'My First Angular App';
-  title = `${ this.ttl.App } ${ this.ttl.Ver }`;
+  title = `${ this.ttl.App } ${ this.ttl.Ver } ${ this.rand ? this.rand : '' }`;
   name = 'Health';
   description = 'Some Product';
   price =  Infinity;
