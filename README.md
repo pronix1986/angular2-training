@@ -20,6 +20,7 @@ Task 2.
     10. Haven't done.
     11. Haven't done.
     12. Haven't done.
+
 Task 3.
     1. Updated CartProductService to provide some useful functionality for working with cart items.
     2. Created LocalStorageService to work with localStorage.
@@ -27,6 +28,7 @@ Task 3.
     4. Created GeneratorService to generate n-lenght random string (n is set during registration phase).
     5. The services above were injected. @Optional was used.
     6. Haven't done.
+
 Task 4.
     1. Built-in 'currency' pipe was used to display product price in 'List of Product' and 'Cart' table.
     2. Custom 'orderBy' pipe was created and used for sorting data in 'List of Product' table.
