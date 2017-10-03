@@ -1,15 +1,15 @@
 <h3>List of Products</h3>
 <table border="1" style="margin: 0px auto;">
   <tr>
-    <th>Id</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Category</th>
-    <th>Price</th>
+    <th (click)="sortBy('id')">Id<span *ngIf="propertyName === 'id'" [ngClass]="asc ? 'asc' : 'desc'"></span></th>
+    <th (click)="sortBy('name')">Name<span *ngIf="propertyName === 'name'" [ngClass]="asc ? 'asc' : 'desc'"></span></th>
+    <th (click)="sortBy('description')">Description<span *ngIf="propertyName === 'description'" [ngClass]="asc ? 'asc' : 'desc'"></span></th>
+    <th (click)="sortBy('category')">Category<span *ngIf="propertyName === 'category'" [ngClass]="asc ? 'asc' : 'desc'"></span></th>
+    <th (click)="sortBy('price')">Price<span *ngIf="propertyName === 'price'" [ngClass]="asc ? 'asc' : 'desc'"></span></th>
     <th></th>
   </tr>
 
-      <tr *ngFor="let product of products | orderBy : 'description'">
+      <tr *ngFor="let product of products | orderBy : propertyName : asc">
         <td>{{product.id}}</td>
         <td>{{product.name}}</td>
         <td>{{product.description}}</td>

@@ -1,6 +1,6 @@
-.sortorder:after {
+.asc::after {
     content: '\25b2';   
 }
-.sortorder.reverse:after {
+.desc::after {
     content: '\25bc'; 
 }

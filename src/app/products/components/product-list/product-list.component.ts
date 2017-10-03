@@ -14,11 +14,20 @@ export class ProductListComponent implements OnInit {
   constructor(private productService: ProductService,
               private cartProductService: CartProductService) { }
   products = this.productService.getProducts();
+  propertyName: string;
+  asc = false;
 
   doBuy(product: Product) {
     console.log('Do Buy');
     console.log(product);
     this.cartProductService.addToCart(product);
+  }
+
+
+
+  sortBy(field: string) {
+      this.asc = this.propertyName ? !this.asc : false;
+      this.propertyName = field;
   }
 
   ngOnInit() {
