@@ -9,12 +9,12 @@
     <th></th>
   </tr>
 
-      <tr *ngFor="let product of products">
+      <tr *ngFor="let product of products | orderBy : 'description'">
         <td>{{product.id}}</td>
         <td>{{product.name}}</td>
         <td>{{product.description}}</td>
         <td>{{product.category.toString()}}</td>
-        <td>{{product.price}}</td>
+        <td>{{product.price | currency: 'USD': 'symbol'}}</td>
         <td><input type="button" value="Buy" (click)="doBuy(product)"></td>
       </tr>
 

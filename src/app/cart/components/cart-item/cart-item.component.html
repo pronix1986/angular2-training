@@ -5,7 +5,7 @@
     </td>
     <td>{{product.name}}</td>
     <td><input #input width="80px" type="number" min="0" [(value)]="product.quantity" (change)="onQualityChange(input.value)"></td>
-    <td>{{cost}}</td>
+    <td>{{cost | currency: 'USD': 'symbol'}}</td>
     <td><input type="button" value="Remove" (click)="removeFromCart()"></td>
   </tr>
 </table>
