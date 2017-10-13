@@ -1,39 +1,37 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <h3>{{description}}</h3>
-  <table border="1" style="margin: 0px auto;">
-    <tr>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Price</th>
-      <th>Is Available?</th>
-      <th>Ingredient</th>
-      <th>Equivalent</th>
-      <th></th>
-    </tr>
-    <tr>
-      <td>{{name}}</td>
-      <td>{{category}}</td>
-      <td><span *ngIf="price == 'Infinity'; else elsePriceBlock">&#x221E;</span> </td>
-        <ng-template #elsePriceBlock><span>{{price}}</span></ng-template>
-      <td><input type="checkbox" [checked]="isAvailable" readonly="true" disabled></td>
-      <!-- Using ngFor to display arrays -->
-      <td>
-        <tr *ngFor="let ing of ingredients">{{ing}}</tr>
-      </td>
-      <td>
-          <tr *ngFor="let eq of equivalents">{{eq}}</tr>
-      </td>
-      <td>
-        <input type="button" value="Buy" (click)="onBuy()">
-      </td>
-    </tr>
-  </table>
-  <app-product-list></app-product-list>
-  <app-cart></app-cart>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" routerLink="/">Shop</a>
+    </div>
+
+    <div>
+      <ul class="nav navbar-nav">
+          <li routerLinkActive="active">
+              <a routerLink="/cart">Cart</a>
+           </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="container">
+    <div class="col-md-10">
+         <router-outlet
+             (activate)='onActivate($event)'
+             (deactivate)='onDeactivate($event)'>
+         </router-outlet>
+         <!-- Routed views go here -->
+    </div>
+    <div class="col-md-2">
+         <router-outlet name="popup"></router-outlet>
+    </div>
+</div>
 </div>
 
 

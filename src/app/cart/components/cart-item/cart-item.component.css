@@ -1,7 +1,11 @@
 table {
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+/* table {
     margin: 0px auto;
 }
 
 td {
     width: 160px;
-}
+} */

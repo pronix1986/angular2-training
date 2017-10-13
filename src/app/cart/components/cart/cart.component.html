@@ -1,18 +1,17 @@
-<p>{{getProducts()}}</p>
 <div *ngIf="(products && products.length > 0); else elseblock">
-<h3>Cart</h3>
-<table border="1">
-  <tr>
-    <th>No</th>
-    <th>Name</th>
-    <th>Quantity</th>
-    <th>Cost</th>
-    <th></th>
-  </tr>
-</table>
-<app-cart-item *ngFor="let product of products" [product]="product"></app-cart-item>
-<p><b>Total items: </b>{{cartService.getTotalProducts()}}&nbsp;
-  <b>Total cost: </b>{{cartService.getTotalCost() | currency: 'USD': 'symbol'}} &nbsp;
-  <input type="button" value="Empty Cart" (click)="emptyCart()"></p>
+  <h3>Cart</h3>
+  <table class="table">
+    <tr>
+      <th class="col-md-2">No</th>
+      <th class="col-md-2">Name</th>
+      <th class="col-md-4">Quantity</th>
+      <th class="col-md-2">Cost</th>
+      <th></th>
+    </tr>
+  </table>
+  <app-cart-item *ngFor="let product of products" [product]="product"></app-cart-item>
+  <p><b>Total items: </b>{{cartService.getTotalProducts()}}&nbsp;
+    <b>Total cost: </b>{{cartService.getTotalCost() | currency: 'USD': 'symbol'}} &nbsp;
+    <input type="button" class="btn btn-danger" value="Empty Cart" (click)="emptyCart()"></p>
 </div>
 <ng-template #elseblock><h3>Cart is Empty</h3></ng-template>

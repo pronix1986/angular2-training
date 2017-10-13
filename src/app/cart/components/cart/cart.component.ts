@@ -4,7 +4,6 @@ import { Category } from '../../../products/model/category.model';
 import { CartProductService } from '../../services/cart.product.service';
 
 @Component({
-  selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })

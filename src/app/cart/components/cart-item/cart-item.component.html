@@ -1,11 +1,11 @@
-<table border="1">
+<table class="table">
   <tr>
-    <td>
+    <td class="col-md-2">
      TODO
     </td>
-    <td>{{product.name}}</td>
-    <td><input #input width="80px" type="number" min="0" [(value)]="product.quantity" (change)="onQualityChange(input.value)"></td>
-    <td>{{cost | currency: 'USD': 'symbol'}}</td>
-    <td><input type="button" value="Remove" (click)="removeFromCart()"></td>
+    <td class="col-md-2">{{product.name}}</td>
+    <td class="col-md-4"><input #input width="80px" type="number" min="0" [(value)]="product.quantity" (change)="onQualityChange(input.value)"></td>
+    <td class="col-md-2">{{cost | currency: 'USD': 'symbol'}}</td>
+    <td><input type="button" class="btn btn-danger" value="Remove" (click)="removeFromCart()"></td>
   </tr>
 </table>

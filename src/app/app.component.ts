@@ -35,6 +35,15 @@ export class AppComponent {
     console.log('Bought!');
   }
 
+  onActivate($event) {
+    console.log('Activated Component', $event);
+  }
+
+  onDeactivate($event) {
+    console.log('Deactivated Component', $event);
+  }
+
+
 }
 
 

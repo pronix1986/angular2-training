@@ -19,20 +19,17 @@ export class CartItemComponent implements OnInit, OnChanges {
   }
 
   onQualityChange(value: number): void {
-    console.log('quantity changed');
     this.product.quantity = value;
     this.cost = this.product.price * this.product.quantity;
   }
 
 
   ngOnInit() {
-    console.log(this.product);
     this.cost = this.product.price;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('On Changes Hook');
-    console.log(changes);
+
   }
 
 }

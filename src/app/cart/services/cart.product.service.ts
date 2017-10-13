@@ -10,8 +10,6 @@ export class CartProductService implements OnInit {
     cartProducts: Array<CartProduct> = [];
 
     addToCart(product: Product) {
-        console.log('Add to Cart');
-        console.log(this.cartProducts);
 
         const obj = this.cartProducts.find((cartProduct) =>
             cartProduct.name === product.name &&
@@ -20,7 +18,6 @@ export class CartProductService implements OnInit {
             cartProduct.price === product.price
         );
 
-        console.log(obj);
 
         if (!obj) {
             this.cartProducts.push(new CartProduct(product, 1));
