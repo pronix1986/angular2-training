@@ -22,7 +22,6 @@ export class ProductFormComponent implements OnInit {
 
     this.route.params
     .switchMap((params: Params) => {
-      console.log(this.productService.getProduct(+params['id']));
       return params['id']
         ? this.productService.getProduct(+params['id'])
         : Promise.resolve(null);

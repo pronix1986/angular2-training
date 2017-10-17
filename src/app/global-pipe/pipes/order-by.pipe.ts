@@ -7,7 +7,7 @@ import {Product} from '../../products/model/product.model';
 export class OrderByPipe implements PipeTransform {
 
   transform(array: Array<Product>, field: string, asc?: boolean): Array<Product> {
-    if (array === null) {
+    if (!array) {
       return null;
     }
 

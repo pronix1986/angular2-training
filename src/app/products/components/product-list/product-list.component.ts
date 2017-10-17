@@ -17,7 +17,7 @@ export class ProductListComponent implements OnInit {
               private router: Router,
               private messagesService: MessagesService
             ) { }
-  products = this.productService.getProducts();
+  products: Product[];
   propertyName: string;
   asc = false;
   success: boolean;
@@ -38,15 +38,20 @@ export class ProductListComponent implements OnInit {
   }
 
 
-
   sortBy(field: string) {
       this.asc = this.propertyName ? !this.asc : false;
       this.propertyName = field;
   }
 
   ngOnInit() {
+    console.log('Products' + this.products);
+    console.log(this.productService.getProducts());
+    if (!this.productService.getProducts()) {
+      this.productService.setDefaultProducts()
+      .then(products => this.products = products)
+      .catch((err) => console.log(err));
+    }
     this.router.navigate([{ outlets: { popup: ['messages'] } }]);
- //   this.messagesService.isDisplayed = true;
   }
 
 }

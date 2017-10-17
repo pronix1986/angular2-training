@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, InjectionToken } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import {ProductsModule} from './products/products.module';
@@ -26,7 +27,8 @@ import {MessagesService} from './services/messages.service';
     BrowserModule,
     ProductsModule,   // Child module
     CartModule,       // Child module
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     LocalStorageService,
