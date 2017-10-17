@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../../products/model/product.model';
 import { Category } from '../../../products/model/category.model';
 import { CartProductService } from '../../services/cart.product.service';
+import {MessagesService} from '../../../services/messages.service';
 
 @Component({
   templateUrl: './cart.component.html',
@@ -13,7 +14,8 @@ export class CartComponent implements OnInit {
   products: Array<Product> = [];
 
 
-  constructor(private cartService: CartProductService) {
+  constructor(private cartService: CartProductService,
+    private messagesService: MessagesService) {
     this.products = cartService.getCartProducts();
   }
 
@@ -23,6 +25,8 @@ export class CartComponent implements OnInit {
 
   emptyCart() {
     this.cartService.emptyCart();
+    this.messagesService.clearMessageList();
+    this.messagesService.addMessage('Cart is empty');
   }
 
   ngOnInit() {

@@ -11,13 +11,16 @@ import {ConfigOptionsService} from './services/config-options.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 import { AppRoutingModule } from './app.routing.module';
+import { MessagesComponent } from './messages/messages.component';
+import {MessagesService} from './services/messages.service';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { AppRoutingModule } from './app.routing.module';
   ],
   providers: [
     LocalStorageService,
-    ConfigOptionsService
+    ConfigOptionsService,
+    MessagesService
   ], // Register custom services
   bootstrap: [AppComponent]
 })
@@ -36,3 +40,4 @@ export class AppModule {
     console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
   }
 } 
+

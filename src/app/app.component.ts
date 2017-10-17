@@ -1,6 +1,7 @@
-import { Component, Inject, InjectionToken, Optional } from '@angular/core';
+import { Component, Inject, InjectionToken, Optional, OnInit } from '@angular/core';
 import { Category } from './products/model/category.model';
 import {RAND_STR, randomStringFactory} from './model/random-string.factory';
+import { Router, NavigationEnd } from '@angular/router';
 
 const APPLICATION = new InjectionToken<any>('Application');
 
@@ -13,10 +14,11 @@ const APPLICATION = new InjectionToken<any>('Application');
     {provide: RAND_STR, useFactory: randomStringFactory(6)} // GeneratorService
   ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   constructor(@Inject(APPLICATION) private ttl: any,
-              @Optional() @Inject(RAND_STR)  private rand: string
+              @Optional() @Inject(RAND_STR)  private rand: string,
+              private router: Router
               ) { }
 
   // Add some new properties incl. arrays
@@ -30,17 +32,20 @@ export class AppComponent {
   ingredients = ['SUN', 'WATER', 'AIR'];
   equivalents = ['BULB', 'BEAR', 'SMOKING'];
 
+  ngOnInit() {
+ //    this.router.navigate([{ outlets: { popup: ['messages'] } }]);
+  }
 
   onBuy() {
     console.log('Bought!');
   }
 
   onActivate($event) {
-    console.log('Activated Component', $event);
+//    console.log('Activated Component', $event);
   }
 
   onDeactivate($event) {
-    console.log('Deactivated Component', $event);
+//    console.log('Deactivated Component', $event);
   }
 
 

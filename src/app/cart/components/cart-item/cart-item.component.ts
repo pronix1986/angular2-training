@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 import {Product} from '../../../products/model/product.model';
 import {CartProduct} from '../../model/cart-product.model';
 import {CartProductService} from '../../services/cart.product.service';
+import {MessagesService} from '../../../services/messages.service';
 
 @Component({
   selector: 'app-cart-item',
@@ -12,10 +13,12 @@ export class CartItemComponent implements OnInit, OnChanges {
   @Input() product: CartProduct;
   cost: number;
 
-  constructor(private cartProductService: CartProductService) { }
+  constructor(private cartProductService: CartProductService,
+    private messagesService: MessagesService) { }
 
   removeFromCart() {
     this.cartProductService.removeFromCart(this.product);
+    this.messagesService.addMessage(`Remove from cart: ${this.product.name}`)
   }
 
   onQualityChange(value: number): void {

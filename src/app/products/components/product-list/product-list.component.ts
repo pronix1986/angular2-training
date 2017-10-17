@@ -4,6 +4,7 @@ import {ProductService} from '../../services/product.service';
 import {CartProductService} from '../../../cart/services/cart.product.service';
 import {Product} from '../../model/product.model';
 import {Category} from '../../model/category.model';
+import {MessagesService} from '../../../services/messages.service';
 
 @Component({
   templateUrl: './product-list.component.html',
@@ -13,13 +14,21 @@ export class ProductListComponent implements OnInit {
 
   constructor(private productService: ProductService,
               private cartProductService: CartProductService,
-              private router: Router) { }
+              private router: Router,
+              private messagesService: MessagesService
+            ) { }
   products = this.productService.getProducts();
   propertyName: string;
   asc = false;
+  success: boolean;
+
 
   doBuy(product: Product) {
-    this.cartProductService.addToCart(product);
+
+    this.success = this.cartProductService.addToCart(product);
+    if (this.success) {
+      this.messagesService.addMessage(`Added to cart:  ${product.name}`);
+    }
   }
 
   doView(product: Product) {
@@ -36,6 +45,8 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.router.navigate([{ outlets: { popup: ['messages'] } }]);
+ //   this.messagesService.isDisplayed = true;
   }
 
 }

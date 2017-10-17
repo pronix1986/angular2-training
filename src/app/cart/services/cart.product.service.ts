@@ -9,7 +9,7 @@ export class CartProductService implements OnInit {
 
     cartProducts: Array<CartProduct> = [];
 
-    addToCart(product: Product) {
+    addToCart(product: Product): boolean {
 
         const obj = this.cartProducts.find((cartProduct) =>
             cartProduct.name === product.name &&
@@ -21,6 +21,9 @@ export class CartProductService implements OnInit {
 
         if (!obj) {
             this.cartProducts.push(new CartProduct(product, 1));
+            return true;
+        } else {
+            return false;
         }
     }
 

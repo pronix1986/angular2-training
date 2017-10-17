@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/components/product-list/product-list.component';
 import { CartComponent } from './cart/components/cart/cart.component';
+import { MessagesComponent } from './messages/messages.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
@@ -14,6 +15,11 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  {
+    path: 'messages',
+    component: MessagesComponent,
+    outlet: 'popup'
   },
   {
     path: '',
