@@ -67,7 +67,8 @@ Task 5.
     1. List of products. Updated.
     2. Created product card ('View' button).
     3, 4. Adding / removing to cart. Updated.
-    5, 6, 7, 8. Haven't done.
+    5. Implemented in a very simple way: just added message log component to show products being added to / removed from cart.    
+     6, 7, 8. Haven't done.
 
 
     
