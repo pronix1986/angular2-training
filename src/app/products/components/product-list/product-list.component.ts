@@ -44,13 +44,15 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('Products' + this.products);
-    console.log(this.productService.getProducts());
-    if (!this.productService.getProducts()) {
-      this.productService.setDefaultProducts()
-      .then(products => this.products = products)
-      .catch((err) => console.log(err));
-    }
+    this.productService.getProducts().then(data => {
+      if (data.length !== 0) {
+        this.products = data;
+      } else {
+        this.productService.setDefaultProducts()
+        .then(products =>  {console.log('products: ' + products); this.products = products;})
+        .catch((err) => console.log(err));
+      }
+    });
     this.router.navigate([{ outlets: { popup: ['messages'] } }]);
   }
 

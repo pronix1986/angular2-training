@@ -40,7 +40,6 @@ export class ProductService {
         return this.http.get(productsUrl)
             .toPromise()
             .then(response => {
-                console.log('Response' + response);
                 return <Product[]> response;
             })
             .catch(this.handleError);

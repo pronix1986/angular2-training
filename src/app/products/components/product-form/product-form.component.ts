@@ -30,7 +30,6 @@ export class ProductFormComponent implements OnInit {
         product => this.product = Object.assign({}, product),
         err => console.log(err)
     );
-    console.log(this.product);
   }
 
   goBack(): void {
