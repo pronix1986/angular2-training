@@ -48,6 +48,10 @@ export class ProductService {
     getProduct(id: number | string): Promise<Product> {
         return this.getProducts()
             .then(product => product.find(p => p.id === +id));
+        // return this.http.get(`${productsUrl}/${id}`)
+        //     .toPromise()
+        //     .then( response => <Product>response )
+        //     .catch( this.handleError );
     }
 
     private handleError(error: any): Promise<any> {
