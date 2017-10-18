@@ -71,4 +71,9 @@ Task 5.
      6, 7, 8. Haven't done.
 
 
-    
+Task 6.
+
+    1. Created backand using json-server. To start the server use the following command: json-server --watch db\db.json --port 4201.
+    2. ProductService service uses HttpClient.
+    3. Only Promises were used
+    4. Haven't done.

@@ -44,7 +44,9 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
+    // console.log('trying on init');
     this.productService.getProducts().then(data => {
+      // console.log(data);
       if (data.length !== 0) {
         this.products = data;
       } else {

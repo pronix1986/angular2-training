@@ -24,10 +24,12 @@ export class ProductService {
     ) {}
 
     setDefaultProducts(): Promise<Product[]> {
+        // console.log('trying set default product');
         const body = JSON.stringify(productList),
         options = {
           headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
         };
+        // console.log(`body: ${body}`);
         return this.http.post(productsUrl, body, options)
             .toPromise()
             .then(response => <Product[]> response)
@@ -36,10 +38,12 @@ export class ProductService {
     }
 
     getProducts(): Promise<Product[]> {
+        // console.log('trying getProducts');
  //       return productListPromise;
         return this.http.get(productsUrl)
             .toPromise()
             .then(response => {
+                console.log(response);
                 return <Product[]> response;
             })
             .catch(this.handleError);
