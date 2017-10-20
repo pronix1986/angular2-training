@@ -77,3 +77,9 @@ Task 6.
     2. ProductService service uses HttpClient.
     3. Only Promises were used
     4. Haven't done.
+
+Task 7.
+
+    1. Crated ProcessOrder component. The following fields are used: First Name, Last Name, Email, Phone.
+    2. Added validations: First Name length is not less than 3 characters + required, Last Name length is not more than 50 characters, Email should comply with provided pattern + required.
+    3. Haven't done.
