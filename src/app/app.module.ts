@@ -3,6 +3,8 @@ import { NgModule, InjectionToken } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import {ProductsModule} from './products/products.module';
 import {CartModule} from './cart/cart.module';
@@ -28,7 +30,9 @@ import {MessagesService} from './services/messages.service';
     ProductsModule,   // Child module
     CartModule,       // Child module
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     LocalStorageService,

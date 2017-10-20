@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Product } from '../../../products/model/product.model';
 import { Category } from '../../../products/model/category.model';
 import { CartProductService } from '../../services/cart.product.service';
@@ -15,7 +16,8 @@ export class CartComponent implements OnInit {
 
 
   constructor(private cartService: CartProductService,
-    private messagesService: MessagesService) {
+    private messagesService: MessagesService,
+    private router: Router) {
     this.products = cartService.getCartProducts();
   }
 
@@ -27,6 +29,10 @@ export class CartComponent implements OnInit {
     this.cartService.emptyCart();
     this.messagesService.clearMessageList();
     this.messagesService.addMessage('Cart is empty');
+  }
+
+  order() {
+    this.router.navigate(['/order']);
   }
 
   ngOnInit() {

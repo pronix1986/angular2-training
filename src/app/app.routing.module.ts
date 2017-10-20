@@ -6,6 +6,7 @@ import { ProductListComponent } from './products/components/product-list/product
 import { CartComponent } from './cart/components/cart/cart.component';
 import { MessagesComponent } from './messages/messages.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import {ProcessOrderComponent} from './cart/components/process-order/process-order.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  {
+    path: 'order',
+    component: ProcessOrderComponent
   },
   {
     path: 'messages',

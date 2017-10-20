@@ -12,6 +12,8 @@
   <app-cart-item *ngFor="let product of products" [product]="product"></app-cart-item>
   <p><b>Total items: </b>{{cartService.getTotalProducts()}}&nbsp;
     <b>Total cost: </b>{{cartService.getTotalCost() | currency: 'USD': 'symbol'}} &nbsp;
-    <input type="button" class="btn btn-danger" value="Empty Cart" (click)="emptyCart()"></p>
+    <input type="button" class="btn btn-primary" value="Order" (click)="order()">
+    <input type="button" class="btn btn-danger" value="Empty Cart" (click)="emptyCart()">
+    </p>
 </div>
 <ng-template #elseblock><h3>Cart is Empty</h3></ng-template>
